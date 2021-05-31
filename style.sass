@@ -1,0 +1,111 @@
+body
+  font-family: 'Dosis', sans-serif
+  margin: 0
+  text-align: center
+  >.title
+    margin-top: 30px
+    font-size: 25px
+.contain
+  position: relative
+  width: 300px
+  height: 300px
+  margin-bottom: 80px
+  left: 50%
+  top: 50px
+  transform: translateX(-50%)
+  -webkit-transform: translateX(-50%)
+  border-radius: 100%
+  box-shadow: 10px 10px 10px gray
+  box-sizing: border-box
+.niddle
+  position: absolute
+  width: 0
+  height: 0
+  left: 320px
+  top: 140px
+  background-color: gray
+  border-right: 20px solid black
+  border-top: 10px solid white
+  border-bottom: 10px solid white
+  border-left: 10px solid white
+.text
+  position: absolute
+  top: 137px
+  left: 370px
+  font-size: 16px
+  font-weight: bold
+  cursor: pointer
+  background-color: lime
+  padding: 3px 6px 3px 6px
+.animate
+  animation: move 1s infinite
+@keyframes move
+  50%
+    transform: translateX(10%)
+  100%
+    transform: translateX(0)
+.pay
+  visibility: hidden
+  color: red
+.pay-goTop
+  visibility: visible
+  transition: all 1s
+  transform: translateY(100%)
+  opacity: 0
+.disabled
+  cursor: not-allowed
+  color: gray
+.spinner
+  transition: all 2s ease-out
+  width: 300px
+  height: 300px
+  border-radius: 100%
+  overflow: hidden
+  position: relative
+.slice
+  position: absolute
+  top: 0
+  left: 110px
+  width: 0
+  height: 0
+  border-left: 40px solid transparent
+  border-right: 40px solid transparent
+  box-sizing: border-box
+.num
+  text-align: center
+  width: 50px
+  transform: translateX(-50%)
+  -webkit-transform: translateX(-50%)
+  position: absolute
+  color: white
+  font-size: 14px
+.b
+  color: black
+.num:first-child
+  top: -150px
+.num:last-child
+  top: 150px
+  transform: translateX(-50%) translateY(-100%) rotate(180deg)
+  -webkit-transform: translateX(-50%) translateY(-100%) rotate(180deg)
+$color: black,red , rgb(255,255,160)
+@for $i from 1 through 7
+  .slice:nth-child(#{$i})
+    $num: $i%3+1
+    $deg: $i*30
+    border-top: 150px solid nth($color,$num)
+    border-bottom: 150px solid nth($color,$num)
+    transform: rotate(#{$deg}deg)
+
+.pool-contain
+  color: red
+  position: relative
+  text-align: center
+  .pool-title
+    font-weight: bold
+    letter-spacing: 3px
+.pool
+  color: orange
+  font-size: 20px
+.hint
+  font-size: 20px
+  margin-bottom: 10px
