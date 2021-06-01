@@ -6,6 +6,7 @@ body {
   text-align: center;
   padding: 0;
   height: 100vh;
+  background-color: #ffb0e8;
 }
 
 body > .title {
@@ -13,6 +14,72 @@ body > .title {
   font-size: 25px;
 }
 
+.main {
+  display: none;
+}
+
+.load {
+  width: 100px;
+  height: 100px;
+}
+.load hr {
+  border: 0;
+  margin: 0;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  border-radius: 50%;
+  animation: spin 2s ease infinite;
+}
+
+.load :first-child {
+  background: #ffffff;
+  animation-delay: -1.5s;
+}
+.load :nth-child(2) {
+  background: #ffffff;
+  animation-delay: -1s;
+}
+.load :nth-child(3) {
+  background: #ffffff;
+  animation-delay: -0.5s;
+}
+.load :last-child {
+  background: #ffffff;
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(160%);
+  }
+  50% {
+    transform: translate(160%, 160%);
+  }
+  75% {
+    transform: translate(0, 160%);
+  }
+}
+
+.center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.side-info {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
 .contain {
   border: 1.5px solid white;
   top: 50%;
@@ -29,11 +96,10 @@ body > .title {
 }
 
 .niddle {
-  position: absolute;
+  margin-top: 1em;
+  margin-right: 1em;
+  height: 1em;
   width: 3em;
-  left: 320px;
-  top: 140px;
-  
 }
 
 .text {
@@ -50,9 +116,6 @@ body > .title {
   cursor: pointer;
   -webkit-box-shadow: 4px 4px 7px rgba(140, 167, 229, 0.834);
   box-shadow: 4px 4px 7px rgba(140, 167, 229, 0.834);
-  position: absolute;
-  top: 137px;
-  left: 370px;
 }
 
 .animate {
@@ -84,7 +147,6 @@ body > .title {
 
 .pay {
   visibility: hidden;
-  color: red;
 }
 
 .pay-goTop {
@@ -98,7 +160,6 @@ body > .title {
 
 .disabled {
   cursor: not-allowed;
-  color: gray;
 }
 
 .spinner {
@@ -149,8 +210,8 @@ body > .title {
 }
 
 .slice:nth-child(1) {
-  border-top: 150px solid  transparent;
-  border-bottom: 150px solid  transparent;
+  border-top: 150px solid transparent;
+  border-bottom: 150px solid transparent;
   -webkit-transform: rotate(30deg);
   transform: rotate(30deg);
 }
@@ -221,7 +282,6 @@ body > .title {
 }
 
 .pool-contain {
-  color: red;
   position: relative;
   text-align: center;
 }
@@ -234,3 +294,25 @@ body > .title {
 .pool {
 }
 
+.resize-text {
+  display: none;
+}
+
+@media only screen and (max-width: 868px) {
+  .resize {
+    display: none;
+  }
+
+  .resize-text {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+  }
+}

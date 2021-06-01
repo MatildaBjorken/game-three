@@ -1,3 +1,12 @@
+document.getElementById('testiframe').addEventListener('load', loaded);
+function loaded() {
+  setTimeout(function () {
+    document.getElementById('loader').style.display = 'none';
+    document.querySelector('.main').style.display = 'block';
+  }, 1000);
+}
+let highScores = localStorage.getItem('theMONEY') || '2500';
+console.log(highScores, 'eee');
 function Game() {
   this.total = 0;
   this.deg = 0;
@@ -6,9 +15,11 @@ function Game() {
   this.value = 0;
   this.reward = 0;
   this.options = [];
-  this.pool = 5000;
+  this.pool = localStorage.getItem('theMONEY') || '2500';
+  console.log(this.pool);
   this.round = 0;
   this.poolEl = document.querySelector('.pool');
+
   this.rate = function () {
     this.random = Math.random() * this.total;
   };
@@ -29,9 +40,11 @@ function Game() {
   this.pay = function (money) {
     this.pool -= money;
     this.changePool();
+    localStorage.setItem('theMONEY', this.pool);
   };
   this.win = function (money) {
     this.pool += money;
+    localStorage.setItem('theMONEY', this.pool);
     this.changePool();
   };
   this.changePool = function () {
@@ -98,3 +111,5 @@ document
     pay.classList.remove('pay-goTop');
     document.querySelector('.text').classList.remove('disabled');
   });
+
+//localStorage.clear();
